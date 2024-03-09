@@ -4,7 +4,6 @@ metadata:
   name: ordens
   labels:
     strimzi.io/cluster: my-cluster
-  namespace: kafka
 spec:
   partitions: 10
   replicas: 3

@@ -2,11 +2,22 @@
 
 Ideia principal: Apresentar breviamente o camel, falar q pode ser Java puro, com Quarkus ou Spring Boot (pode ser com jbang para prototipar), que pode ser Camel K (kamelets, kamelet binding e intregration)
 
+Para a apresentacao, a ideia seria mostrar q podemos ir melhorando uma aplicacao de integracao.
+
+Teremos uma aplicacao "front", que recebe requisicoes via Http e envia pro Kafka o body.
+
+Faremos a implementacao inicial com SB, faremos o deploy, mostraremos q a mesma aplicacao implantada pode ser serverless sem qualquer alteracao
+
+
 1. Teremos um OpenShift zerado, sem nd
-   1. Instalar AMQ STreams
-   2. Instalar um Kafka com usuário e senha
-   3. Configurar um Tópico
-   4. Configurar kafka-ui
+   1. Instalar AMQ Streams
+   2. Instalar um Kafka autenticação scram-sha-512 e authorization simple
+      1. poderia ser sem autenticação, tls, plain, oauth2
+   4. Configurar um Tópico
+      1. Com replica 4, e ver que ele nao sera criado
+   5. Criar um Usuário
+      1. Ver a secret que foi criada
+   6. Configurar kafka-ui
 2. Criar uma app do zero, com spring boot
    1. app basica
       1. Cria com archetipe publico

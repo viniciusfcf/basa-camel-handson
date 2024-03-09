@@ -4,7 +4,6 @@ metadata:
   name: my-kafka-user
   labels:
     strimzi.io/cluster: my-cluster
-  namespace: kafka
 spec:
   authentication:
     type: scram-sha-512
