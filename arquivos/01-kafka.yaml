@@ -5,11 +5,11 @@ metadata:
 spec:
   kafka:
     config:
-      offsets.topic.replication.factor: 3
-      transaction.state.log.replication.factor: 3
-      transaction.state.log.min.isr: 2
-      default.replication.factor: 3
-      min.insync.replicas: 2
+      offsets.topic.replication.factor: 1
+      transaction.state.log.replication.factor: 1
+      transaction.state.log.min.isr: 1
+      default.replication.factor: 1
+      min.insync.replicas: 1
       inter.broker.protocol.version: '3.6'
     authorization:
       type: simple
@@ -26,12 +26,18 @@ spec:
         port: 9093
         type: internal
         tls: true
+      - name: external
+        authentication:
+          type: scram-sha-512
+        port: 9094
+        type: route
+        tls: true
     version: 3.6.0
-    replicas: 3
+    replicas: 1
   entityOperator:
     topicOperator: {}
     userOperator: {}
   zookeeper:
     storage:
       type: ephemeral
-    replicas: 3
+    replicas: 1

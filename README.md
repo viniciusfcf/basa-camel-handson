@@ -27,3 +27,12 @@ Faremos a implementacao inicial com SB, faremos o deploy, mostraremos q a mesma 
    3. Avaliar se crio um Processor
 3. Criar um kamaletbinding similar a aplicação em SB
 4. Utilizar Kaoto (avaliar o operator)
+
+
+Alterar HOSTS
+
+https://setapp.com/how-to/edit-mac-hosts-file
+
+sudo nano /etc/hosts
+
+sudo killall -HUP mDNSResponder
