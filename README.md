@@ -25,8 +25,14 @@ Faremos a implementacao inicial com SB, faremos o deploy, mostraremos q a mesma 
       3. testa uma alteracao e ve se já aparece 
    2. Alterar a app para ler do kafka, e fazer um post para rest https://echo-api.3scale.net/ e LOGAR a resposta (ou colocar em outra fila)
    3. Avaliar se crio um Processor
-3. Criar um kamaletbinding similar a aplicação em SB
-4. Utilizar Kaoto (avaliar o operator)
+3. Instalar Pipelines
+4. Lembrar da URL
+   1. localhost:8080/camel/ordem
+5. Instalar serverless
+   1. Lembrar do serving e eventing
+6. Instalar Operador Camel K
+7. Criar um kamaletbinding similar a aplicação em SB
+8. Utilizar Kaoto (avaliar o operator)
 
 
 Alterar HOSTS
@@ -36,3 +42,15 @@ https://setapp.com/how-to/edit-mac-hosts-file
 sudo nano /etc/hosts
 
 sudo killall -HUP mDNSResponder
+
+Para criar o log, criar a parti do channel
+
+No serving.knative.dev/v1/Service 
+```
+- name: camel.component.kafka.brokers
+            value: my-cluster-kafka-bootstrap:9092
+```
+camel.component.kafka.brokers=my-cluster-kafka-bootstrap:9092
+
+
+2024-03-11 01:03:26,768 WARN [org.apa.kaf.cli.ClientUtils] (Camel (camel-1) thread #1 - KafkaConsumer[ordens]) Couldn't resolve server my-cluster-kafka-bootstrap.my-kafka.svc:9092 from bootstrap.servers as DNS resolution failed for my-cluster-kafka-bootstrap.my-kafka.svc

@@ -17,7 +17,7 @@ public class MySpringBootRouter extends RouteBuilder {
     public void configure() {
 
         from("kafka:ordens")
-            .to("log:kafka")
+            .to("log:kafka?showHeaders=true")
         ;
 
     }
