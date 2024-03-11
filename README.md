@@ -30,9 +30,13 @@ Faremos a implementacao inicial com SB, faremos o deploy, mostraremos q a mesma 
    1. localhost:8080/camel/ordem
 5. Instalar serverless
    1. Lembrar do serving e eventing
-6. Instalar Operador Camel K
-7. Criar um kamaletbinding similar a aplicação em SB
-8. Utilizar Kaoto (avaliar o operator)
+6. Implantar a aplicacao em outro namespace como serverless
+7. Instalar um Novo Kafka
+8. Copiar o secret do usuario do primeiro kafka
+9. Criar Kafka Mirror2 no novo namespace
+10. Instalar Operador Camel K
+11. Criar um kamaletbinding similar a aplicação em SB
+12. Utilizar Kaoto (avaliar o operator)
 
 
 Alterar HOSTS

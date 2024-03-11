@@ -1,0 +1,36 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaMirrorMaker2
+metadata:
+  name: my-m2-cluster
+spec:
+  mirrors:
+    - checkpointConnector:
+        config:
+          checkpoints.topic.replication.factor: -1
+      sourceConnector:
+        config:
+          replication.factor: -1
+          offset-syncs.topic.replication.factor: -1
+          sync.topic.acls.enabled: 'false'
+      sourceCluster: origem
+      targetCluster: destino
+      topicsPattern: .*
+      groupsPattern: .*
+  clusters:
+    - authentication:
+        passwordSecret:
+          secretName: my-kafka-user
+          password: password
+        type: scram-sha-512
+        username: my-kafka-user
+      alias: origem
+      bootstrapServers: 'my-cluster-kafka-bootstrap.kafka4.svc.cluster.local:9092'
+    - config:
+        config.storage.replication.factor: -1
+        offset.storage.replication.factor: -1
+        status.storage.replication.factor: -1
+      alias: destino
+      bootstrapServers: 'my-cluster-kafka-bootstrap.kafka5.svc.cluster.local:9092'
+  version: 3.6.0
+  replicas: 1
+  connectCluster: destino
