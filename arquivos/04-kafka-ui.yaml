@@ -76,7 +76,7 @@ spec:
             - name: KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM
               value: SCRAM-SHA-512
             - name: KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG
-              value: 'org.apache.kafka.common.security.scram.ScramLoginModule required username="my-kafka-user" password="yo3WGhoKWNEqZzIUzxmAPo7YD1qBLAtM";'
+              value: 'org.apache.kafka.common.security.scram.ScramLoginModule required username="my-kafka-user" password="UzJSNbtN4eqQPP3gwldNKXUv8hRgu3AC";'
           imagePullPolicy: Always
       restartPolicy: Always
       terminationGracePeriodSeconds: 30

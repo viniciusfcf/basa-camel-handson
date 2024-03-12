@@ -18,15 +18,22 @@ public class MySpringBootRouter extends RouteBuilder {
 
         restConfiguration().component("servlet").host("localhost").port(8080).bindingMode(RestBindingMode.auto);
 
-        rest("/")
-            .get("ordem").routeId("post-route")
-                .to("direct:cadastrarOrdem");
+        rest("/ordens")
+            .get("").routeId("get-route")
+                .to("direct:cadastrarOrdem")
+            .post("").routeId("post-route")
+                .to("direct:cadastrarOrdem")
+        ;
 
         ;
 
         from("direct:cadastrarOrdem")
-            .setBody(constant("OK"))
+        .to("xj:identity?transformDirection=XML2JSON")
+            .to("log:aa")
+            .to("bean:myBean?method=adicionarDataAtual")
+            // .setBody(constant("OK"))
             .to("kafka:ordens")
+            .setBody(constant("OK"))
             .setHeader(Exchange.CONTENT_TYPE, constant("plain/text"))
         ;
 

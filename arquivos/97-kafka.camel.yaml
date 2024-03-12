@@ -1,0 +1,18 @@
+- route:
+    id: route-aeea
+    from:
+      uri: kamelet:kafka-source
+      id: from-8175
+      parameters:
+        topic: origem.ordens
+        bootstrapServers: my-cluster-kafka-bootstrap:9092
+        user: a
+        password: a
+        consumerGroup: a
+        saslMechanism: PLAIN
+        securityProtocol: PLAINTEXT
+      steps:
+        - log:
+            message: ${body}
+            id: log-109b
+    group: aaa
