@@ -24,13 +24,13 @@ spec:
         type: scram-sha-512
         username: my-kafka-user
       alias: origem
-      bootstrapServers: 'my-cluster-kafka-bootstrap.kafka4.svc.cluster.local:9092'
+      bootstrapServers: 'my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092'
     - config:
         config.storage.replication.factor: -1
         offset.storage.replication.factor: -1
         status.storage.replication.factor: -1
       alias: destino
-      bootstrapServers: 'my-cluster-kafka-bootstrap.kafka5.svc.cluster.local:9092'
+      bootstrapServers: 'my-cluster-kafka-bootstrap.kafka-remoto.svc.cluster.local:9092'
   version: 3.6.0
   replicas: 1
   connectCluster: destino
